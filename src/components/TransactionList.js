@@ -1,5 +1,7 @@
 import { useGlobal } from '../context/GlobalState';
 
+import Transaction from './Transaction';
+
 const TransactionList = () => {
   const { transactions } = useGlobal();
 
@@ -9,9 +11,7 @@ const TransactionList = () => {
       <ul className="list">
         {
           transactions.map(transaction => (
-            <li key={transaction.id} className="minus">
-              {transaction.text} <span>{transaction.amount}</span><button className="delete-btn">x</button>
-            </li>
+            <Transaction key={transaction.id} transaction={transaction} />
           ))
         }
       </ul>
