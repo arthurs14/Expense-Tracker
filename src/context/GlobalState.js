@@ -20,12 +20,17 @@ const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(Reducer, initialState);
 
   // Actions
+  const addTransaction = (transaction) => {
+    dispatch({ type: 'ADD_TRANSACTION', payload: transaction });
+  };
+
   const deleteTransaction = (id) => {
     dispatch({ type: 'DELETE_TRANSACTION', payload: id });
   };
 
   const value = {
     transactions: state.transactions,
+    addTransaction,
     deleteTransaction,
   };
 

@@ -1,10 +1,27 @@
 import { useState } from 'react';
+import { useGlobal } from '../context/GlobalState';
+import { v4 as uuidv4} from 'uuid';
 
 const AddTransaction = () => {
+  const { addTransaction } = useGlobal();
+
   const [formData, setFormData] = useState({
     text: '',
     amount: 0,
   });
+
+  const onSubmit = (ev) => {
+    ev.preventDefault();
+
+    const newTransaction = {
+      id: uuidv4(),
+      text: formData.text,
+      amount: parseInt(formData.amount),
+    };
+
+    addTransaction(newTransaction);
+  }
+  
 
   const onChange = (ev) => {
     setFormData({ ...formData, [ev.target.name]: ev.target.value });
@@ -13,7 +30,7 @@ const AddTransaction = () => {
   return (
     <>
       <h3>Add New Transaction</h3>
-      <form>
+      <form onSubmit={onSubmit}>
         <div className="form-control">
           <label htmlFor="item">Item</label>
           <input  
