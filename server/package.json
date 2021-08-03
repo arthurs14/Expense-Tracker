@@ -1,0 +1,31 @@
+{
+  "name": "expense-tracker",
+  "version": "1.0.0",
+  "description": "backend for expense tracker",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthurs14/Expense-Tracker.git"
+  },
+  "author": "Arthur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arthurs14/Expense-Tracker/issues"
+  },
+  "homepage": "https://github.com/arthurs14/Expense-Tracker#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.5",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.0",
+    "nodemon": "^2.0.12"
+  }
+}
