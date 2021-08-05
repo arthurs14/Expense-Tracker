@@ -1,9 +1,15 @@
+import { useEffect } from 'react';
 import { useGlobal } from '../context/GlobalState';
 
 import Transaction from './Transaction';
 
 const TransactionList = () => {
-  const { transactions } = useGlobal();
+  const { transactions, getTransactions } = useGlobal();
+
+  useEffect(() => {
+    getTransactions();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
