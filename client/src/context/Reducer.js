@@ -9,7 +9,7 @@ const Reducer = (state, action) => {
     case 'ADD_TRANSACTION':
       return {
         ...state,
-        transactions: [action.payload, ...state.transactions],
+        transactions: [...state.transactions, action.payload],
       };
     case 'DELETE_TRANSACTION':
       return { 
