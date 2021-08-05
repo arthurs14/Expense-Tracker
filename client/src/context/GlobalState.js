@@ -45,8 +45,11 @@ const GlobalProvider = ({ children }) => {
 
   const value = {
     transactions: state.transactions,
+    error: state.error,
+    loading: state.loading,
     addTransaction,
     deleteTransaction,
+    getTransactions,
   };
 
   return (
