@@ -9,6 +9,9 @@ const initialState = {
   loading: true,
 };
 
+// URL
+const url = '/api/v1/transactions';
+
 // Create context
 const GlobalContext = createContext(initialState);
 export const useGlobal = () => useContext(GlobalContext);
@@ -20,7 +23,7 @@ const GlobalProvider = ({ children }) => {
   // Actions
   const getTransactions = async () => {
     try {
-      const res = await axios.get('/api/v1/transactions');
+      const res = await axios.get(url);
       console.log('[getTransactions]', res);
 
       dispatch({
@@ -43,7 +46,7 @@ const GlobalProvider = ({ children }) => {
     };
 
     try {
-      const res = await axios.post('/api/v1/transactions', transaction, config);
+      const res = await axios.post(url, transaction, config);
       
       dispatch({ 
         type: 'ADD_TRANSACTION', 
@@ -59,7 +62,7 @@ const GlobalProvider = ({ children }) => {
 
   const deleteTransaction = async (id) => {
     try {
-      await axios.delete(`/api/v1/transactions/${id}`);
+      await axios.delete(`${url}/${id}`);
 
       dispatch({ type: 'DELETE_TRANSACTION', payload: id });
     } catch (err) {
