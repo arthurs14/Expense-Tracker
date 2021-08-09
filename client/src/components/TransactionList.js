@@ -8,6 +8,7 @@ const TransactionList = () => {
 
   useEffect(() => {
     getTransactions();
+    // prevents unending loop for mounting
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

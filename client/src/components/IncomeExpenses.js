@@ -18,7 +18,6 @@ const IncomeExpenses = () => {
         <h4>Expense</h4>
         <p className="money minus">${expenseTotal}</p>
       </div>
-
     </div>
   );
 };
