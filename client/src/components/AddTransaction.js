@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useGlobal } from '../context/GlobalState';
-import { v4 as uuidv4} from 'uuid';
 
 const AddTransaction = () => {
   const { addTransaction } = useGlobal();
@@ -14,7 +13,6 @@ const AddTransaction = () => {
     ev.preventDefault();
 
     const newTransaction = {
-      id: uuidv4(),
       text: formData.text,
       amount: parseInt(formData.amount),
     };
