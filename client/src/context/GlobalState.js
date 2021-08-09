@@ -24,7 +24,6 @@ const GlobalProvider = ({ children }) => {
   const getTransactions = async () => {
     try {
       const res = await axios.get(url);
-      console.log('[getTransactions]', res);
 
       dispatch({
         type: 'GET_TRANSACTIONS',
