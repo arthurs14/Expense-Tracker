@@ -77,6 +77,10 @@ label {
   margin: 10px 0;
 }
 
+.form-control {
+  margin-bottom: 20px;
+}
+
 input[type='text'],
 input[type='number'] {
   /* border: 1px solid #dedede;

@@ -52,12 +52,11 @@ const AddTransaction = () => {
             type="text"
             name="text"
             fullWidth
-            placeholder="Enter Text..."
             onChange={onChange}
             />
         </div>
         <div className="form-control">
-          <label htmlFor="amount">
+          {/* <label htmlFor="amount">
             Amount <br /> (negative - expense, positive - income)
           </label>
           <input 
@@ -66,6 +65,14 @@ const AddTransaction = () => {
             value={formData.amount} 
             onChange={onChange} 
             placeholder="Enter Amount..." 
+          /> */}
+          <TextField 
+            label="Amount"
+            name="amount"
+            type="number"
+            fullWidth
+            value={formData.amount}
+            onChange={onChange}
           />
         </div>
         {/* <button className="btn">Add Transaction</button> */}
