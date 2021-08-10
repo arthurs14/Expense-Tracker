@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useGlobal } from '../context/GlobalState';
-import { Button } from '@material-ui/core';
+import { TextField, Button } from '@material-ui/core';
 
 const AddTransaction = () => {
   const { addTransaction } = useGlobal();
@@ -28,7 +28,10 @@ const AddTransaction = () => {
   
 
   const onChange = (ev) => {
+    console.log(ev.target);
     setFormData({ ...formData, [ev.target.name]: ev.target.value });
+
+    console.log(formData);
   };
 
   return (
@@ -36,13 +39,22 @@ const AddTransaction = () => {
       <h3>Add New Transaction</h3>
       <form>
         <div className="form-control">
-          <label htmlFor="item">Item</label>
+          {/* <label htmlFor="item">Item</label>
           <input  
             type="text" 
             name="text" 
             value={formData.text} onChange={onChange} 
             placeholder="Enter Text..." 
-          />
+          /> */}
+          <TextField
+            label="Item"
+            value={formData.text}
+            type="text"
+            name="text"
+            fullWidth
+            placeholder="Enter Text..."
+            onChange={onChange}
+            />
         </div>
         <div className="form-control">
           <label htmlFor="amount">
