@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useGlobal } from '../context/GlobalState';
+import { Button } from '@material-ui/core';
 
 const AddTransaction = () => {
   const { addTransaction } = useGlobal();
@@ -18,6 +19,11 @@ const AddTransaction = () => {
     };
 
     addTransaction(newTransaction);
+
+    setFormData({
+      text: '',
+      amount: 0,
+    });
   }
   
 
@@ -28,7 +34,7 @@ const AddTransaction = () => {
   return (
     <>
       <h3>Add New Transaction</h3>
-      <form onSubmit={onSubmit}>
+      <form>
         <div className="form-control">
           <label htmlFor="item">Item</label>
           <input  
@@ -50,7 +56,10 @@ const AddTransaction = () => {
             placeholder="Enter Amount..." 
           />
         </div>
-        <button className="btn">Add Transaction</button>
+        {/* <button className="btn">Add Transaction</button> */}
+        <Button className="btn" variant="contained" onClick={onSubmit}>
+          Add Transaction
+        </Button>
       </form>
     </>
   );
