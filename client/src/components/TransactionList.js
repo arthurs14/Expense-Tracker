@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useGlobal } from '../context/GlobalState';
+import { Typography, Divider } from '@material-ui/core';
 
 import Transaction from './Transaction';
 
@@ -14,6 +15,8 @@ const TransactionList = () => {
 
   return (
     <>
+      <Typography variant="h6">History</Typography>
+      <Divider />
       <ul className="list">
         {
           transactions.map(transaction => (
