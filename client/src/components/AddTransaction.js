@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useGlobal } from '../context/GlobalState';
-import { TextField, Button } from '@material-ui/core';
+import { TextField, Button, Typography, Divider } from '@material-ui/core';
 
 const AddTransaction = () => {
   const { addTransaction } = useGlobal();
@@ -53,7 +53,8 @@ const AddTransaction = () => {
 
   return (
     <>
-      <h3>Add New Transaction</h3>
+      <Typography variant="h6">Add New Transaction</Typography>
+      <Divider />
       <form>
         <div className="form-control">
           <TextField
