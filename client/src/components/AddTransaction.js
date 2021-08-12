@@ -58,9 +58,28 @@ const AddTransaction = () => {
             onChange={onChange}
           />
         </div>
-        <Button className="btn" variant="contained" onClick={onSubmit}>
-          Add Transaction
-        </Button>
+        {
+          formData.text !== '' && formData.amount !== 0
+            ? (
+              <Button 
+                className="btn" 
+                variant="contained"  
+                onClick={onSubmit}
+              >
+                Add Transaction
+              </Button>
+            )
+            : (
+              <Button 
+                className="btn" 
+                variant="contained"  
+                disabled
+                onClick={onSubmit}
+              >
+                Add Transaction
+              </Button>
+            )
+        }
       </form>
     </>
   );
