@@ -40,7 +40,7 @@ const AddTransaction = () => {
       <form>
         <div className="form-control">
           <TextField
-            label="Item"
+            label="Transaction"
             value={formData.text}
             type="text"
             name="text"
@@ -50,7 +50,7 @@ const AddTransaction = () => {
         </div>
         <div className="form-control">
           <TextField 
-            label="Amount"
+            label="Amount in USD"
             name="amount"
             type="number"
             fullWidth
