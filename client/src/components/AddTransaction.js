@@ -12,11 +12,10 @@ const AddTransaction = () => {
 
   const onSubmit = (ev) => {
     ev.preventDefault();
-    console.log(formData);
 
-    if (formData.text === '' || formData.amount === '0') {
-      alert('Invalid Data');
-    } else {
+    const validate = formValidate();
+
+    if (validate) {
       const newTransaction = {
         text: formData.text,
         amount: parseInt(formData.amount),
@@ -28,34 +27,29 @@ const AddTransaction = () => {
         text: '',
         amount: 0,
       });
+    } else {
+      return;
     }
   }
+
+  const formValidate = () => {
+    let valid = true;
+
+    if (formData.text === '' || formData.text.length < 2) {
+      alert('Invalid Text.');
+      valid = false;
+    } else if (formData.amount === 0) {
+      alert('Invalid Amount.');
+      valid = false;
+    }
+
+    return valid;
+  };
   
 
   const onChange = (ev) => {
     setFormData({ ...formData, [ev.target.name]: ev.target.value });
   };
-
-  let formButton = formData.text !== '' && formData.amount !== 0
-    ? (
-      <Button
-        className="btn"
-        variant="contained"
-        onClick={onSubmit}
-      >
-        Add Transaction
-      </Button>
-    )
-    : (
-      <Button
-        className="btn"
-        variant="contained"
-        disabled
-        onClick={onSubmit}
-      >
-        Add Transaction
-      </Button>
-    )
 
   return (
     <>
@@ -81,7 +75,13 @@ const AddTransaction = () => {
             onChange={onChange}
           />
         </div>
-        {formButton}
+        <Button
+          className="btn"
+          variant="contained"
+          onClick={onSubmit}
+        >
+          Add Transaction
+        </Button>
       </form>
     </>
   );
