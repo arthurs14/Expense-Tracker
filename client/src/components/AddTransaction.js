@@ -12,35 +12,31 @@ const AddTransaction = () => {
 
   const onSubmit = (ev) => {
     ev.preventDefault();
+    console.log(formData);
 
-    // if (formData.text === '' || formData.amount === 0) {
-    //   alert('Invalid Data');
-    // } else {
-
-    // }
-    const newTransaction = {
-      text: formData.text,
-      amount: parseInt(formData.amount),
-    };
-
-    addTransaction(newTransaction);
-
-    setFormData({
-      text: '',
-      amount: 0,
-    });
-
+    if (formData.text === '' || formData.amount === '0') {
+      alert('Invalid Data');
+    } else {
+      const newTransaction = {
+        text: formData.text,
+        amount: parseInt(formData.amount),
+      };
+  
+      addTransaction(newTransaction);
+  
+      setFormData({
+        text: '',
+        amount: 0,
+      });
+    }
   }
   
 
   const onChange = (ev) => {
-    console.log(ev.target);
     setFormData({ ...formData, [ev.target.name]: ev.target.value });
-
-    console.log(formData);
   };
 
-  let formButton = formData.text !== '' && formData.amount !== 0 
+  let formButton = formData.text !== '' && formData.amount !== 0
     ? (
       <Button
         className="btn"
