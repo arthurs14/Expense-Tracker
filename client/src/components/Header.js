@@ -1,5 +1,7 @@
+import { Typography } from "@material-ui/core";
+
 const Header = () => {
-  return <h2>Expense Tracker</h2>;
+  return <Typography variant="h3">Expense Tracker</Typography>;
 };
 
 export default Header;
