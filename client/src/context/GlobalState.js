@@ -25,6 +25,9 @@ const GlobalProvider = ({ children }) => {
     try {
       const res = await axios.get(url);
 
+      const data = res.data.data.reverse();
+      console.log(data);
+
       dispatch({
         type: 'GET_TRANSACTIONS',
         payload: res.data.data
