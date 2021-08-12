@@ -39,13 +39,6 @@ const AddTransaction = () => {
       <h3>Add New Transaction</h3>
       <form>
         <div className="form-control">
-          {/* <label htmlFor="item">Item</label>
-          <input  
-            type="text" 
-            name="text" 
-            value={formData.text} onChange={onChange} 
-            placeholder="Enter Text..." 
-          /> */}
           <TextField
             label="Item"
             value={formData.text}
@@ -56,16 +49,6 @@ const AddTransaction = () => {
             />
         </div>
         <div className="form-control">
-          {/* <label htmlFor="amount">
-            Amount <br /> (negative - expense, positive - income)
-          </label>
-          <input 
-            type="number" 
-            name="amount" 
-            value={formData.amount} 
-            onChange={onChange} 
-            placeholder="Enter Amount..." 
-          /> */}
           <TextField 
             label="Amount"
             name="amount"
@@ -75,7 +58,6 @@ const AddTransaction = () => {
             onChange={onChange}
           />
         </div>
-        {/* <button className="btn">Add Transaction</button> */}
         <Button className="btn" variant="contained" onClick={onSubmit}>
           Add Transaction
         </Button>
